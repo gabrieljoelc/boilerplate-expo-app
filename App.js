@@ -1,6 +1,6 @@
 /* @flow */
 
-import { KeepAwake, Util } from 'expo';
+import { Util } from 'expo';
 import * as React from 'react';
 import { StatusBar, I18nManager, AsyncStorage, Platform } from 'react-native';
 import {
@@ -124,7 +124,6 @@ export default class PaperExample extends React.Component<{}, State> {
             }
           />
         </PreferencesContext.Provider>
-        <KeepAwake />
       </PaperProvider>
     );
   }
