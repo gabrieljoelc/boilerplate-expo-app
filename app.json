@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Prototype with material UI",
-    "slug": "proto-expo-paper-3",
+    "slug": "proto-expo-paper",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
