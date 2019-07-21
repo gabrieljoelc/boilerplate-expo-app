@@ -116,13 +116,7 @@ export default class PaperExample extends React.Component<{}, State> {
             isDarkTheme: this.state.theme === DarkTheme,
           }}
         >
-          <App
-            persistenceKey={
-              process.env.NODE_ENV !== 'production'
-                ? 'NavigationStateDEV'
-                : null
-            }
-          />
+          <App />
         </PreferencesContext.Provider>
       </PaperProvider>
     );
