@@ -9,7 +9,7 @@ import {
   DefaultTheme,
 } from 'react-native-paper';
 import createReactContext from 'create-react-context';
-import { createDrawerNavigator } from 'react-navigation';
+import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 import RootNavigator from 'src/RootNavigator';
 import DrawerItems from './DrawerItems';
 import type { Theme } from 'react-native-paper';
@@ -21,7 +21,7 @@ type State = {
 
 const PreferencesContext: any = createReactContext();
 
-const App = createDrawerNavigator(
+const AppNavigator = createDrawerNavigator(
   { Home: { screen: RootNavigator } },
   {
     contentComponent: () => (
@@ -41,6 +41,8 @@ const App = createDrawerNavigator(
       Platform.OS === 'android' && (I18nManager.isRTL ? 'right' : 'left'),
   }
 );
+
+const App = createAppContainer(AppNavigator);
 
 export default class PaperExample extends React.Component<{}, State> {
   state = {
