@@ -27,6 +27,7 @@ import TextExample from './TextExample';
 import TextInputExample from './TextInputExample';
 import TouchableRippleExample from './TouchableRippleExample';
 import type { Theme } from 'react-native-paper/types';
+import { Appbar } from 'react-native-paper';
 
 type Props = {
   theme: Theme,
@@ -62,8 +63,15 @@ export const examples = {
 const data = Object.keys(examples).map(id => ({ id, data: examples[id] }));
 
 class ExampleList extends React.Component<Props> {
-  static navigationOptions = {
-    title: 'Examples',
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: (
+        <Appbar.Header>
+          <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} />
+          <Appbar.Content title="Examples" />
+        </Appbar.Header>
+      ),
+    };
   };
 
   _renderItem = ({ item }) => (

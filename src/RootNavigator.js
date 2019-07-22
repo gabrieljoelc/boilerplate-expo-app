@@ -34,15 +34,5 @@ export default createStackNavigator(
   {
     home: { screen: ExampleList },
     ...routes,
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      header: (
-        <Appbar.Header>
-          <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} />
-          <Appbar.Content title="Examples" />
-        </Appbar.Header>
-      ),
-    }),
   }
 );
