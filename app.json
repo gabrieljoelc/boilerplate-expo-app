@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Prototype with material UI",
-    "slug": "proto-expo-paper",
+    "name": "Boilerplate expo app",
+    "slug": "boilerplate-expo-app",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
@@ -26,6 +26,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Trying to get expo working with Material UI"
+    "description": "Trying to get it working with Material UI, Firebase authentication, and Hasura backend."
   }
 }
