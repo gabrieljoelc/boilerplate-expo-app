@@ -18,14 +18,34 @@ type Props = {
 
 class AuthScreen extends React.Component<Props> {
   render() {
+    const {
+      theme: {
+        colors: { background },
+      },
+    } = this.props;
     return (
-      <View>
+      <View
+        style={[styles.container, { backgroundColor: background }]}
+      >
         <Title style={styles.title}>Login</Title>
         <Text style={styles.title}>
           Please enter your credentials
         </Text>
-        <TextInput style={styles.textInput} placeholder="Email" underlineColorAndroid={"black"} />
-        <TextInput style={styles.textInput} placeholder="Password" underlineColorAndroid={"black"} />
+
+        <TextInput
+          mode="outlined"
+          style={styles.inputContainerStyle}
+          label="Email"
+          placeholder="example@gmail.com"
+        />
+
+        <TextInput
+          mode="outlined"
+          style={styles.inputContainerStyle}
+          label="Password"
+          placeholder="$tr0ngPassword"
+        />
+
         <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('home')}>
           <Button mode="outlined" onPress={() => {}} style={styles.button}>
             Login
@@ -37,10 +57,18 @@ class AuthScreen extends React.Component<Props> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 25,
+    padding: 8,
+  },
   textInput: {
     margin: 8,
   },
   button: {
+    height: 55,
+    marginTop: 15,
+    justifyContent: 'center',
   },
   title: {
     margin: 8,

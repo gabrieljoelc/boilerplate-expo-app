@@ -36,5 +36,9 @@ export default createStackNavigator(
     auth: AuthScreen,
     home: { screen: ExampleList },
     ...routes,
+  },
+  {
+    initialRouteName: 'auth',
+    headerMode: 'none'
   }
 );
