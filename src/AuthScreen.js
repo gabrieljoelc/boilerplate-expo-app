@@ -17,6 +17,10 @@ type Props = {
 };
 
 class AuthScreen extends React.Component<Props> {
+  static navigationOptions = {
+    header: null
+  }
+
   render() {
     const {
       theme: {
@@ -46,11 +50,9 @@ class AuthScreen extends React.Component<Props> {
           placeholder="$tr0ngPassword"
         />
 
-        <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('home')}>
-          <Button mode="outlined" onPress={() => {}} style={styles.button}>
-            Login
-          </Button>
-        </TouchableOpacity>
+        <Button mode="outlined" onPress={()=>this.props.navigation.navigate('home')} style={styles.button}>
+          Login
+        </Button>
       </View>
     );
   }

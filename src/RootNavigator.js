@@ -39,6 +39,5 @@ export default createStackNavigator(
   },
   {
     initialRouteName: 'auth',
-    headerMode: 'none'
   }
 );
