@@ -3,7 +3,8 @@
 import * as React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Appbar } from 'react-native-paper';
-import ExampleList, { examples } from './ExampleList';
+import ExampleList, { examples } from 'src/ExampleList';
+import AuthScreen from 'src/AuthScreen';
 
 const routes = Object.keys(examples)
   .map(id => ({ id, item: examples[id] }))
@@ -32,6 +33,7 @@ const routes = Object.keys(examples)
 
 export default createStackNavigator(
   {
+    auth: AuthScreen,
     home: { screen: ExampleList },
     ...routes,
   }
