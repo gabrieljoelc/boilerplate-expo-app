@@ -4,7 +4,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Text, TextInput,
+import {
+  Button,
+  Text,
+  TextInput,
   Title,
   withTheme } from 'react-native-paper';
 import type { Theme } from 'react-native-paper/types';
@@ -24,7 +27,9 @@ class AuthScreen extends React.Component<Props> {
         <TextInput style={styles.textInput} placeholder="Email" underlineColorAndroid={"black"} />
         <TextInput style={styles.textInput} placeholder="Password" underlineColorAndroid={"black"} />
         <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('home')}>
-          <Text>Login</Text>
+          <Button mode="outlined" onPress={() => {}} style={styles.button}>
+            Login
+          </Button>
         </TouchableOpacity>
       </View>
     );
