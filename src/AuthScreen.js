@@ -16,10 +16,20 @@ type Props = {
   theme: Theme,
 };
 
-class AuthScreen extends React.Component<Props> {
+type State = {
+  email: string,
+  password: string,
+};
+
+class AuthScreen extends React.Component<Props, State> {
   static navigationOptions = {
     header: null
   }
+
+  state = {
+    email: '',
+    password: '',
+  };
 
   render() {
     const {
@@ -41,6 +51,8 @@ class AuthScreen extends React.Component<Props> {
           style={styles.inputContainerStyle}
           label="Email"
           placeholder="example@gmail.com"
+          value={this.state.email}
+          onChangeText={email => this.setState({ email })}
         />
 
         <TextInput
@@ -48,6 +60,9 @@ class AuthScreen extends React.Component<Props> {
           style={styles.inputContainerStyle}
           label="Password"
           placeholder="$tr0ngPassword"
+          value={this.state.password}
+          onChangeText={password => this.setState({ password })}
+          secureTextEntry={true}
         />
 
         <Button mode="outlined" onPress={()=>this.props.navigation.navigate('home')} style={styles.button}>
