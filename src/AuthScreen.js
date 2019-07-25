@@ -31,6 +31,11 @@ class AuthScreen extends React.Component<Props, State> {
     password: '',
   };
 
+  constructor(props) {
+    super(props);
+    this.passTextInput = null;
+  }
+
   render() {
     const {
       theme: {
@@ -47,21 +52,30 @@ class AuthScreen extends React.Component<Props, State> {
         </Text>
 
         <TextInput
+          autoCompleteType="email"
           mode="outlined"
           style={styles.inputContainerStyle}
           label="Email"
+          keyboardType="email-address"
           placeholder="example@gmail.com"
           value={this.state.email}
           onChangeText={email => this.setState({ email })}
+          onSubmitEditing={() => { this.passTextInput.focus(); }}
+          returnKeyType='next'
         />
 
         <TextInput
+          autoCompleteType="password"
+          ref={(input) => {
+              this.passTextInput = input
+          }}
           mode="outlined"
           style={styles.inputContainerStyle}
           label="Password"
           placeholder="$tr0ngPassword"
           value={this.state.password}
           onChangeText={password => this.setState({ password })}
+          returnKeyType="next"
           secureTextEntry={true}
         />
 
