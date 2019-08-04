@@ -54,7 +54,7 @@ class AuthScreen extends React.Component<Props, State> {
       if(email !== '' && password !== ''){
         this.loginToFireBase(email, password);
       } else {
-        console.warn('Please enter your email and password')
+        this.setState({ loading: false, error: 'Please enter your email and password' })
       }
     });
   };
@@ -63,8 +63,15 @@ class AuthScreen extends React.Component<Props, State> {
     this.setState({ isLogin: true });
     Firebase.userLogin(email, password)
       .then(user => {
-        if(user) this.props.success(user);
-        this.setState({ isLogin: false });
+        if(user)
+        {
+          this.props.success(user);
+          console.info('logged in')
+        }
+        this.setState({ isLogin: false, loading: false });
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: 'Error occurred' })
       });
   };
 
@@ -146,9 +153,10 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   errorTextStyle: {
-    fontSize: 16,
     alignSelf: 'center',
-    color: 'red'
+    color: 'red',
+    fontSize: 16,
+    marginTop: 8,
   },
   textInput: {
     margin: 8,
