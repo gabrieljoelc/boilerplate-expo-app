@@ -13,6 +13,7 @@ import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 import RootNavigator from 'src/RootNavigator';
 import DrawerItems from './DrawerItems';
 import type { Theme } from 'react-native-paper';
+import firebase from "firebase";
 
 type State = {
   theme: Theme,
@@ -43,6 +44,16 @@ const AppNavigator = createDrawerNavigator(
 );
 
 const App = createAppContainer(AppNavigator);
+
+const firebaseConfig = {
+  apiKey: "xyz",
+  authDomain: "xyz",
+  databaseURL: "xyz",
+  projectId: "xyz",
+  storageBucket: "xyz",
+  messagingSenderId: "xyz"
+};
+firebase.initializeApp(firebaseConfig);
 
 export default class PaperExample extends React.Component<{}, State> {
   state = {
