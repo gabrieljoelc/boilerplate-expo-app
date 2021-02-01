@@ -3,7 +3,9 @@
 import * as React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Appbar } from 'react-native-paper';
-import ExampleList, { examples } from './ExampleList';
+import ExampleList, { examples } from 'src/ExampleList';
+import AuthScreen from 'src/AuthScreen';
+import FirebaseLogin from "./FirebaseLogin";
 
 const routes = Object.keys(examples)
   .map(id => ({ id, item: examples[id] }))
@@ -30,9 +32,30 @@ const routes = Object.keys(examples)
     };
   }, {});
 
+
+type Props = {
+  theme: Theme,
+};
+
+class Login extends React.Component<Props> {
+  static navigationOptions = {
+    header: null
+  }
+
+  render() {
+    return (
+      <FirebaseLogin login={user => console.warn(user)}/>
+    );
+  }
+}
+
 export default createStackNavigator(
   {
+    login: Login,
     home: { screen: ExampleList },
     ...routes,
+  },
+  {
+    initialRouteName: 'login',
   }
 );
